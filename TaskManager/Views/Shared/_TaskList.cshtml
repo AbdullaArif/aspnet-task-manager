@@ -1,0 +1,46 @@
+﻿@model IEnumerable<TaskManager.Core.Models.TaskItem>
+
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Title</th>
+            <th>Priority</th>
+            <th>Deadline</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model)
+        {
+            <tr>
+                <td>@task.Title</td>
+                <td>@task.Priority</td>
+                <td>@(task.Deadline.HasValue? task.Deadline.Value.ToString("dd.MM.yyyy HH:mm") : "—")</td>
+                <td>
+                    @{
+                        var status = task.GetStatus();
+                        var badgeClass = status switch
+                        {
+                            "Done" => "badge bg-success",
+                            "Overdue" => "badge bg-danger",
+                            "Urgent" => "badge bg-warning text-dark",
+                            _ => "badge bg-primary"
+                        };
+                    }
+                    <span class="@badgeClass">@status</span>
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@task.Id" class="btn btn-sm btn-info">Details</a>
+                    <a asp-action="Edit" asp-route-id="@task.Id" class="btn btn-sm btn-warning">Edit</a>
+                    <form asp-action="Delete" asp-route-id="@task.Id" method="post" style="display:inline">
+                        <button type="submit" class="btn btn-sm btn-danger"
+                                onclick="return confirm('Silmək istədiyinizə əminsiniz?')">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

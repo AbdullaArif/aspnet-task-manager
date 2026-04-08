@@ -1,0 +1,21 @@
+﻿@model IEnumerable<TaskManager.Core.Models.TaskItem>
+
+@{
+    ViewBag.Title = "Tasks";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Task List</h2>
+    <a asp-action="Create" class="btn btn-success">+ New Task</a>
+</div>
+
+<div class="mb-3">
+    <strong>Sort by:</strong>
+    <a asp-action="Index" asp-route-sortBy="priority_asc" class="btn btn-sm btn-outline-secondary ms-2">Priority ↑</a>
+    <a asp-action="Index" asp-route-sortBy="priority_desc" class="btn btn-sm btn-outline-secondary">Priority ↓</a>
+    <a asp-action="Index" asp-route-sortBy="deadline_asc" class="btn btn-sm btn-outline-secondary">Deadline ↑</a>
+    <a asp-action="Index" asp-route-sortBy="deadline_desc" class="btn btn-sm btn-outline-secondary">Deadline ↓</a>
+    <a asp-action="Index" class="btn btn-sm btn-outline-danger">Reset</a>
+</div>
+
+@await Html.PartialAsync("_TaskList", Model)

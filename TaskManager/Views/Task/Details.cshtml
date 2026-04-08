@@ -1,0 +1,38 @@
+﻿@model TaskManager.Core.Models.TaskItem
+
+@{
+    ViewBag.Title = "Task Details";
+}
+
+<h2>Task Details</h2>
+
+<div class="card mt-3" style="max-width:600px">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Title</h5>
+
+        <p><strong>Description:</strong> @Model.Description</p>
+        <p><strong>Priority:</strong> @Model.Priority</p>
+        <p><strong>Deadline:</strong> @(Model.Deadline.HasValue? Model.Deadline.Value.ToString("dd.MM.yyyy HH:mm") : "—")</p>
+        <p><strong>Completed:</strong> @(Model.IsCompleted ? "Yes" : "No")</p>
+
+        <p>
+            <strong>Status:</strong>
+            @{
+                var status = Model.GetStatus();
+                var badgeClass = status switch
+                {
+                    "Done" => "badge bg-success",
+                    "Overdue" => "badge bg-danger",
+                    "Urgent" => "badge bg-warning text-dark",
+                    _ => "badge bg-primary"
+                };
+            }
+            <span class="@badgeClass">@status</span>
+        </p>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Back to List</a>
+</div>
