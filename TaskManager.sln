@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "path": "TaskManager.slnx",
+    "projects": [
+      "TaskManager.Core\\TaskManager.Core.csproj",
+      "TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj",
+      "TaskManager.Service\\TaskManager.Service.csproj",
+      "TaskManager\\TaskManager.csproj"
+    ]
+  }
+}
