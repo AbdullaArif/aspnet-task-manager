@@ -1,0 +1,11 @@
+[providers]
+dotnet = { version = "10.0" }
+
+[phases.install]
+cmds = ["dotnet restore TaskManager/TaskManager.csproj"]
+
+[phases.build]
+cmds = ["dotnet publish TaskManager/TaskManager.csproj -c Release -o out"]
+
+[phases.start]
+cmd = "./out/TaskManager"
