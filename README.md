@@ -1,3 +1,10 @@
+## Live Demo
+
+🔗 https://aspnet-task-manager-production.up.railway.app/
+
+---
+
+
 # ASP.NET Core Task Manager
 
 A task management web application built with ASP.NET Core MVC, 
@@ -76,14 +83,23 @@ TaskManager.sln
 5. Open browser: `http://localhost:5000`
 
 ---
+## Screanshoots 
 
-## Live Demo
+![WEB](image.png)
 
-🔗 [Coming soon]
+![WEB](image-1.png)
 
+![WEB](image-2.png)
+
+![WEB](image-3.png)
+
+![WEB](image-4.png)
+
+![WEB](image-5.png)
 ---
-
 ## Author
+
+
 
 **Arif Abdulla**  
 Backend Engineer — .NET  
