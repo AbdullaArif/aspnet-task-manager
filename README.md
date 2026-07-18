@@ -64,8 +64,8 @@ TaskManager.sln
 2. Update connection string in `TaskManager/appsettings.json`:
 ```json
    "ConnectionStrings": {
-     "DefaultConnection": "Host=localhost;Port=5432;
-     Database=TaskManagerDb;Username=postgres;Password="
+     "DefaultConnection": "Host=;Port=;
+     Database=;Username=;Password="
    }
 ```
 
