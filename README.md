@@ -7,9 +7,7 @@
 
 # ASP.NET Core Task Manager
 
-A task management web application built with ASP.NET Core MVC, 
-developed as a technical assessment for the Digital Health Center 
-of the Ministry of Health of Azerbaijan.
+A task management web application built with ASP.NET Core MVC
 
 ---
 
